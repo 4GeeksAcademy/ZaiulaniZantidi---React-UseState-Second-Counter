@@ -1,11 +1,198 @@
-/* 
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+body {
+    font-family: "Liberation Sans", sans-serif;
+    margin: 0;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
 
-*/
+.seconds-counter-container {
+    background-color: #ffffff;
+    border-radius: 0px;
+    padding: 40px;
+    text-align: center;
+    max-width: 600px; 
+    width: 100%;
+}
+
+h1 {
+    color: #343a40;
+    font-weight: 700;
+    margin-bottom: 40px;
+    transition: color 1.0s ease-in-out, text-shadow 1.0s ease-in-out; 
+}
+
+.timer-display-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #222;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.timer-icon {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+    color: #eee;
+}
+
+.digit-card-container {
+    display: flex;
+    gap: 5px;
+}
+
+.digit-card {
+    background-color: #000; 
+    color: #eee;
+    font-family: 'monospace', 'Courier New', Courier; 
+    font-size: 3.5rem; 
+    font-weight: bold;
+    padding: 5px 8px;
+    border-radius: 5px;
+    width: 60px; 
+    text-align: center;
+    box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.1);
+}
+@media (max-width: 576px) {
+    .timer-icon {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+    }
+    .digit-card {
+        font-size: 2.5rem;
+        width: 45px;
+        padding: 3px 5px;
+    }
+    .timer-display-wrapper {
+        padding: 10px 15px;
+    }
+}
+
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-group input {
+    flex-grow: 1;
+    max-width: 150px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.input-group button {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    background-color: #6c757d; 
+    border-color: #6c757d;
+    color: white;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+.input-group button:hover {
+    background-color: #5a6268;
+    transform: translateY(-1px);
+}
+
+.control-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.control-buttons button {
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    flex: 1 1 auto;
+    max-width: 150px;
+}
+
+.control-buttons .start-btn {
+    background-color: #404842; 
+}
+.control-buttons .start-btn:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+.control-buttons .stop-btn {
+    background-color: #404842;
+}
+.control-buttons .stop-btn:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+}
+
+.control-buttons .reset-btn {
+    background-color: #404842;
+    color: #ffffff; 
+}
+.control-buttons .reset-btn:hover {
+    background-color: #e0a800;
+    transform: translateY(-2px);
+}
+
+.message-box {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: fit-content;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    font-weight: 500;
+}
+.message-box.alert-info { background-color: #0dcaf0; border-color: #0dcaf0; color: white; }
+.message-box.alert-success { background-color: #28a745; border-color: #28a745; color: white; }
+.message-box.alert-warning { background-color: #ffc107; border-color: #ffc107; color: #212529; }
+.message-box.alert-danger { background-color: #dc3545; border-color: #dc3545; color: white; }
+
+@media (max-width: 576px) {
+    .seconds-counter-container {
+        padding: 30px 20px;
+    }
+    .counter-display {
+        font-size: 3rem;
+    }
+    .input-group {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .input-group input,
+    .input-group button {
+        max-width: 100%;
+        width: 100%;
+    }
+    .control-buttons button {
+        max-width: 100%;
+    }
+}
